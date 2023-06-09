@@ -38,7 +38,8 @@ public class PinguSqrt {
 
 				while (t - l >= 0) {
 
-					j++;// compteur de soustraction
+					j++;
+					// compteur de soustraction
 
 					a = t - l; // Conserve la derniere valeur de t-l
 					System.out.println("-" + (m + (2 * k + 1)));
