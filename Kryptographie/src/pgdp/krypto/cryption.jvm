@@ -1,0 +1,67 @@
+
+// TODO: Implementiere ein Programm welches für y, N eingelesen Schlüssel in einer Schleife ein eingelesen
+// x mit x^y mod N verschlüsselt solang x != 0 ist.
+ALLOC 5
+READ 
+STORE 0
+READ 
+STORE 1
+//debut de la boucle
+while:
+READ 
+STORE 2
+LOAD 2
+CONST 0
+NEQ
+FJUMP end
+JUMP puissance
+puissance_end:
+LOAD 3
+LOAD 1
+JUMP modulo
+rücksprung:
+LOAD 3
+WRITE
+JUMP while
+
+puissance:
+CONST 1
+STORE 3
+CONST 0
+STORE 4
+//while(i<y) x=x*x; i++
+
+while2:
+LOAD 4
+LOAD 0
+LESS
+FJUMP puissance_end
+LOAD 2 
+LOAD 3 
+MUL
+STORE 3
+CONST 1
+LOAD 4
+ADD
+STORE 4
+JUMP while2
+
+modulo:
+//while (y<=x) x=x-y;
+LESS
+FJUMP mo
+JUMP rücksprung
+
+mo:
+LOAD 3
+LOAD 1
+SUB
+STORE 3
+LOAD 3
+LOAD 1
+JUMP modulo
+
+end:
+HALT
+
+
